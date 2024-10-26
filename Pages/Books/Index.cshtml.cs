@@ -24,6 +24,7 @@ namespace Gherman_Daria_Lab2.Pages.Books
         public async Task OnGetAsync()
         {
             Book = await _context.Book
+                .Include(b => b.Author)
                 .Include(b => b.Publisher)
                 .ToListAsync();
         }
